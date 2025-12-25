@@ -1,0 +1,37 @@
+CREATE DATABASE users_payments;
+USE users_payments;
+
+CREATE TABLE users (
+    userID INT PRIMARY KEY AUTO_INCREMENT,
+    firstName VARCHAR(50) NOT NULL,
+    lastName VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE KEY NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    address VARCHAR(100) NOT NULL,
+    zipcode INT NOT NULL
+);
+
+--INSERT INTO users (firstName, lastName, email, city, address, zipcode)
+--VALUES
+--("Andrew", "Ellis", "puriti275@gmail.com", "Memphis", "1375 Catherine Street", 38111);
+
+
+CREATE TABLE payments (
+    paymentID INT PRIMARY KEY AUTO_INCREMENT,
+    userID INT NOT NULL
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    price INT NOT NULL,
+    quantity INT,
+    product VARCHAR(100),
+    donation BOOLEAN NOT NULL,
+    recurring BOOLEAN NOT NULL,
+    FOREIGN KEY (userID) REFERENCES users(userID)
+);
+
+CREATE TABLE order_items (
+    orderID INT PRIMARY KEY AUTO_INCREMENT,
+    stripeID VARCHAR(255) NOT NULL,
+    product VARCHAR(100) NOT NULL,
+    quantity INT NOT NULL,
+    unit_price int NOT NULL
+)
