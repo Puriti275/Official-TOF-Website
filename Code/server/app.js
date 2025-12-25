@@ -71,7 +71,8 @@ app.use(cors( {
      origin: [
         "http://localhost:5500",
          "tof-website.onrender.com",
-        "www.tof24.org"
+        "www.tof24.org",
+         process.env.CLIENT_URL
     ],
      method: ["POST" ]
     }))
