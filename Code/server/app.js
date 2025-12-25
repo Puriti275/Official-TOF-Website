@@ -70,6 +70,7 @@ import cors from 'cors'
 app.use(cors( {
      origin: [
         "http://localhost:5500",
+         "tof-website.onrender.com",
         "www.tof24.org"
     ],
      method: ["POST" ]
