@@ -36,6 +36,8 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
 
         //const session1 = stripe.checkout.sessions.retrieve(session.id, {expand: ['line_items']})
 
+        res.status(200).json({ received: true })
+        
         try {
             //const line_items = Stripe.checkout.sessions.listLineItems
             await createPayment(session, items)
@@ -46,8 +48,6 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
         }
         //mysql api
     }
-
-    res.json({ received: true })
 })
 
 import path from 'path'
