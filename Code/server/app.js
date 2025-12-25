@@ -35,8 +35,6 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
         //const sessionID = event.data.object.id
 
         //const session1 = stripe.checkout.sessions.retrieve(session.id, {expand: ['line_items']})
-
-        res.status(200).json({ received: true })
         
         try {
             //const line_items = Stripe.checkout.sessions.listLineItems
@@ -47,6 +45,7 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
             return res.status(500).send(`Database Error: ${err.message}`)
         }
         //mysql api
+        res.status(200).json({ received: true })
     }
 })
 
