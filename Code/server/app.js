@@ -47,7 +47,7 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
         //mysql api
     }
 
-    return res.json({ received: true })
+    res.json({ received: true })
 })
 
 app.use(express.json())
