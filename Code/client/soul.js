@@ -207,7 +207,7 @@ function getCartData() {
 }
 
 function checkout() {
-    fetch(`${process.env.SERVER_URL}/create-checkout-session`, {
+    fetch('/create-checkout-session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
