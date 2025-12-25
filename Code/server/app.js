@@ -38,7 +38,7 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
 
         try {
             //const line_items = Stripe.checkout.sessions.listLineItems
-            const result = createPayment(session, items)
+            await createPayment(session, items)
             console.log("Payment created")
             
         } catch (err) {
